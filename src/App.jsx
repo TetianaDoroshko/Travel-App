@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router';
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Logo from './Components/Logo/Logo';
@@ -13,7 +13,9 @@ import tripsList from './assets/trips.json';
 import bookingList from './assets/booked-trips.json';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Loader from './Components/Loader/Loader';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLocalStorage } from './helpers/localStorage';
+import { checkCurrentThunk } from './redux/actions/auth/checkCurrent';
 
 function App() {
     const [showNav, setShowNav] = useState(false);
@@ -21,8 +23,15 @@ function App() {
     const [boogings, setBookings] = useState(bookingList);
 
     const location = useLocation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const { loading } = useSelector(store => store.auth);
+
+    useEffect(() => {
+        const token = getLocalStorage();
+        token ? dispatch(checkCurrentThunk(token)) : navigate('/sign-in');
+    }, [dispatch, navigate]);
 
     useEffect(() => {
         if (location.pathname !== '/sign-up' && location.pathname !== '/sign-in') {
@@ -36,45 +45,45 @@ function App() {
 
     const removeBooking = useCallback(id => setBookings(boogings.filter(booking => booking.id !== id)), [boogings]);
 
-    console.log(process.env.REACT_APP_BASE_URL);
-
     return (
         <>
-            {loading && <Loader />}
             <Header>
                 <Logo />
                 {showNav && <Navigation />}
             </Header>
-
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <PrivateRoute>
-                            <Home trips={trips} />
-                        </PrivateRoute>
-                    }
-                />
-                <Route path="/sign-up" element={<SignUp />} />
-                <Route path="/sign-in" element={<SignIn />} />
-                <Route
-                    path="/trip/:id"
-                    element={
-                        <PrivateRoute>
-                            <TripPage trips={trips} add={addBooking} />
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path="/booking"
-                    element={
-                        <PrivateRoute>
-                            <BookingPage bookings={boogings} remove={removeBooking} />
-                        </PrivateRoute>
-                    }
-                />
-                <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
+            {loading ? (
+                <Loader />
+            ) : (
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <PrivateRoute>
+                                <Home trips={trips} />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route path="/sign-up" element={<SignUp />} />
+                    <Route path="/sign-in" element={<SignIn />} />
+                    <Route
+                        path="/trip/:id"
+                        element={
+                            <PrivateRoute>
+                                <TripPage trips={trips} add={addBooking} />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/booking"
+                        element={
+                            <PrivateRoute>
+                                <BookingPage bookings={boogings} remove={removeBooking} />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+            )}
 
             <Footer />
         </>

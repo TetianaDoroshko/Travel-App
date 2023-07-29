@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PageTitle from '../Components/PageTitle/PageTitle';
-import Loader from '../Components/Loader/Loader';
 import { SignUpInForm, LinkAfterForm } from '../Components/SignUpInForm/SignUpInForm';
 import styles from './pages.module.css';
-import { signupThunk } from '../redux/actions/auth/sugnUp';
+import { signUpThunk } from '../redux/actions/auth/signUp';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 
@@ -18,7 +17,7 @@ const SignUp = () => {
 
     const signUpNewUser = newUser => {
         console.log(newUser);
-        dispatch(signupThunk(newUser));
+        dispatch(signUpThunk(newUser));
     };
     return (
         <main className={styles.signUpInpage}>

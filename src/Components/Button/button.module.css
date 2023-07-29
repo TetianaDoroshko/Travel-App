@@ -21,3 +21,7 @@
 .trip__button {
     max-width: 200px;
 }
+
+.signOut__button {
+    min-height: auto;
+}

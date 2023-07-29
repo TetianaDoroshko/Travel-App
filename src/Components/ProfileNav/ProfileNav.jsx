@@ -3,9 +3,17 @@ import style from './profileNav.module.css';
 import NavItemLink from '../Navigation/NavItemLink';
 import iconUser from '../../assets/images/user.svg';
 import ProfileNavItem from './ProfileNavItem';
-import ProfileNavLink from './ProfileNavLink';
+import Button from '../Button/Button';
+import { useDispatch } from 'react-redux';
+import { signOutThunk } from '../../redux/actions/auth/signOut';
 
 const ProfileNav = () => {
+    const dispatch = useDispatch();
+
+    const signOut = () => {
+        dispatch(signOutThunk());
+    };
+
     return (
         <div
             data-test-id="header-profile-nav"
@@ -16,9 +24,13 @@ const ProfileNav = () => {
             <ul data-test-id="header-profile-nav-list" className={style.profileNav__list}>
                 <ProfileNavItem dataId="header-profile-nav-username">John Doe</ProfileNavItem>
                 <ProfileNavItem>
-                    <ProfileNavLink path="/sign-in" dataId="header-profile-nav-sign-out">
-                        Sign Out
-                    </ProfileNavLink>
+                    <Button
+                        title="Sign Out"
+                        dataId="header-profile-nav-sign-out"
+                        type="button"
+                        addClass="signOut__button"
+                        onClick={signOut}
+                    />
                 </ProfileNavItem>
             </ul>
         </div>

@@ -10,7 +10,7 @@ const SignUpInForm = ({ title, onSubmit }) => {
     const onFormSubmit = e => {
         e.preventDefault();
         const newUser = {
-            fullName: e.currentTarget.elements['full-name'].value,
+            fullName: e.currentTarget.elements['full-name']?.value,
             email: e.currentTarget.elements.email.value,
             password: e.currentTarget.elements.password.value
         };

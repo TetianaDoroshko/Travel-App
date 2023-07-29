@@ -7,7 +7,7 @@ const removeLocalStorage = () => {
 };
 
 const getLocalStorage = () => {
-    localStorage.getItem('travel-app');
+    return localStorage.getItem('travel-app');
 };
 
 export { saveLocalStorage, removeLocalStorage, getLocalStorage };

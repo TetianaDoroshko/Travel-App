@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import styles from './button.module.css';
 
 const Button = ({ title, type = 'submit', dataId, addClass, onClick }) => {
-    const classes = addClass ? `${styles.button} ${styles.trip__button}` : styles.button;
+    const classes = addClass ? `${styles.button} ${styles[addClass]}` : styles.button;
     return (
-        <button data-test-id={dataId} className={classes} type={type} onClick={onClick}>
+        <button data-test-id={dataId} className={classes} type={type} onClick={onClick} title={title}>
             {title}
         </button>
     );
