@@ -36,7 +36,7 @@ const TripPage = () => {
             </main>
             {isShownModal && (
                 <Modal>
-                    <BookTripPopup trip={trip} onClose={closeModal} add={() => {}} />
+                    <BookTripPopup trip={trip} onClose={closeModal} />
                 </Modal>
             )}
         </>

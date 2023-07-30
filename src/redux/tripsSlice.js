@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const tripsSlice = createSlice({
-    name: 'auth',
+    name: 'trips',
     initialState,
     extraReducers: builder => {
         builder

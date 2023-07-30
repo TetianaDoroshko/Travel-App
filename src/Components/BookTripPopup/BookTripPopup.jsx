@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { v4 as uuid } from 'uuid';
 import style from './bookTripPopup.module.css';
 import TripInfo from '../TripInfo/TripInfo';
 import Button from '../Button/Button';
@@ -7,30 +6,26 @@ import InputControlled from '../Input/InputControlled';
 import { TripType } from '../../variables/propTypes';
 import { useState } from 'react';
 import { formatDate, setDateTomorrow } from '../../helpers/setDate';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBookingThunk } from '../../redux/actions/bookings/addBooking';
 
-const BookTripPopup = ({ trip, onClose, add }) => {
+const BookTripPopup = ({ trip, onClose }) => {
     const [date, setDate] = useState(setDateTomorrow());
     const [guests, setGuests] = useState(1);
+    const userId = useSelector(store => store.auth.user.id);
+    const dispatch = useDispatch();
 
     let totalValue = trip.price * guests;
 
     const onFormSubmit = event => {
         event.preventDefault();
         const newBooking = {
-            id: uuid(),
-            userId: uuid(),
             tripId: trip.id,
+            userId: userId,
             guests: +guests,
-            date: formatDate(date),
-            trip: {
-                title: trip.title,
-                duration: trip.duration,
-                price: trip.price
-            },
-            totalPrice: totalValue,
-            createdAt: formatDate(Date.now())
+            date: formatDate(date)
         };
-        add(newBooking);
+        dispatch(addBookingThunk(newBooking));
         event.currentTarget.reset();
         onClose();
     };
@@ -74,8 +69,7 @@ const BookTripPopup = ({ trip, onClose, add }) => {
 
 BookTripPopup.propTypes = {
     trip: TripType.isRequired,
-    onClose: PropTypes.func.isRequired,
-    add: PropTypes.func.isRequired
+    onClose: PropTypes.func.isRequired
 };
 
 export default BookTripPopup;
