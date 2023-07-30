@@ -59,7 +59,7 @@ function App() {
                         path="/"
                         element={
                             <PrivateRoute>
-                                <Home trips={trips} />
+                                <Home />
                             </PrivateRoute>
                         }
                     />
@@ -69,7 +69,7 @@ function App() {
                         path="/trip/:id"
                         element={
                             <PrivateRoute>
-                                <TripPage trips={trips} add={addBooking} />
+                                <TripPage />
                             </PrivateRoute>
                         }
                     />

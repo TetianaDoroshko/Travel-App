@@ -1,14 +1,20 @@
-import PropTypes from 'prop-types';
 import PageTitle from '../Components/PageTitle/PageTitle';
 import Filter from '../Components/Filter/Filter';
 import TripsContainer from '../Components/TripsContainer/TripsContainer';
-
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { check, checkDuration } from '../helpers/checkFilter';
-import { TripType } from '../variables/propTypes';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllThunk } from '../redux/actions/trips/getAll';
 
-const Home = ({ trips }) => {
+const Home = () => {
     const [filter, setFilter] = useState({ search: '', duration: '', level: '' });
+
+    const dispatch = useDispatch();
+    const { trips } = useSelector(store => store.trips);
+
+    useEffect(() => {
+        dispatch(getAllThunk());
+    }, [dispatch]);
 
     const filteredTrips = useMemo(
         () =>
@@ -26,10 +32,6 @@ const Home = ({ trips }) => {
             <TripsContainer trips={filteredTrips} />
         </main>
     );
-};
-
-Home.propTypes = {
-    trips: PropTypes.arrayOf(TripType)
 };
 
 export default Home;

@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { httpService } from '../services/httpService';
 import { authReducer } from './authSlice';
+import { tripsReducer } from './tripsSlice';
 
 export const store = configureStore({
     reducer: {
-        // trips: tripsReducer,
+        trips: tripsReducer,
         // filter: filterReduser,
         auth: authReducer
     },
