@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import style from './tripsContainer.module.css';
+import style from './TripsContainer.module.css';
 import PageTitle from '../PageTitle/PageTitle';
 import TripCard from './TripCard';
 import { TripType } from '../../variables/propTypes';

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import style from './navigation.module.css';
+import style from './Navigation.module.css';
 
 const NavItem = ({ title, children }) => (
     <li title={title} className={style.navHeader__item}>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import style from './navigation.module.css';
+import style from './Navigation.module.css';
 import commonStyle from '../../styles/App.module.css';
 
 const NavItemLink = ({ path, dataId = null, title, icon, hidden }) => {

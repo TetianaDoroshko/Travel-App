@@ -14,6 +14,7 @@ import Loader from './Components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocalStorage } from './helpers/localStorage';
 import { checkCurrentThunk } from './redux/actions/auth/checkCurrent';
+import { RoutingPath } from './variables/routingPath';
 
 function App() {
     const [showNav, setShowNav] = useState(false);
@@ -25,11 +26,11 @@ function App() {
 
     useEffect(() => {
         const token = getLocalStorage();
-        token ? dispatch(checkCurrentThunk(token)) : <Navigate to="/sign-in" />;
+        token ? dispatch(checkCurrentThunk(token)) : <Navigate to={RoutingPath.SIGN_IN} />;
     }, [dispatch]);
 
     useEffect(() => {
-        if (location.pathname !== '/sign-up' && location.pathname !== '/sign-in') {
+        if (location.pathname !== RoutingPath.SIGN_UP && location.pathname !== RoutingPath.SIGN_IN) {
             setShowNav(true);
         } else {
             setShowNav(false);
@@ -47,17 +48,17 @@ function App() {
             ) : (
                 <Routes>
                     <Route
-                        path="/"
+                        path={RoutingPath.HOME}
                         element={
                             <PrivateRoute>
                                 <Home />
                             </PrivateRoute>
                         }
                     />
-                    <Route path="/sign-up" element={<SignUp />} />
-                    <Route path="/sign-in" element={<SignIn />} />
+                    <Route path={RoutingPath.SIGN_UP} element={<SignUp />} />
+                    <Route path={RoutingPath.SIGN_IN} element={<SignIn />} />
                     <Route
-                        path="/trip/:id"
+                        path={RoutingPath.TRIP_PAGE}
                         element={
                             <PrivateRoute>
                                 <TripPage />
@@ -65,14 +66,14 @@ function App() {
                         }
                     />
                     <Route
-                        path="/booking"
+                        path={RoutingPath.BOOKING}
                         element={
                             <PrivateRoute>
                                 <BookingPage />
                             </PrivateRoute>
                         }
                     />
-                    <Route path="*" element={<Navigate to="/" />} />
+                    <Route path="*" element={<Navigate to={RoutingPath.HOME} />} />
                 </Routes>
             )}
 

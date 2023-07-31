@@ -1,5 +1,5 @@
-import navStyle from '../Navigation/navigation.module.css';
-import style from './profileNav.module.css';
+import navStyle from '../Navigation/Navigation.module.css';
+import style from './ProfileNav.module.css';
 import NavItemLink from '../Navigation/NavItemLink';
 import iconUser from '../../assets/images/user.svg';
 import ProfileNavItem from './ProfileNavItem';

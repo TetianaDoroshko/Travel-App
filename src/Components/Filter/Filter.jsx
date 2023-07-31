@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import PageTitle from '../PageTitle/PageTitle';
-import style from './filter.module.css';
+import style from './Filter.module.css';
 import FilterInput from './FilterInput';
 import FilterInputSelect from './FilterInputSelect';
 import { useEffect, useState } from 'react';
@@ -10,7 +10,7 @@ const Filter = ({ change }) => {
     const [filter, setFilter] = useState({ search: '', duration: '', level: '' });
 
     const changeFilter = (filterName, value) => {
-        setFilter({ ...filter, [filterName]: value });
+        setFilter(prevFilter => ({ ...prevFilter, [filterName]: value }));
     };
     useEffect(() => {
         change(filter);

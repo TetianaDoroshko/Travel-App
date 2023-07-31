@@ -1,16 +1,7 @@
 import PropTypes from 'prop-types';
-import styles from './input.module.css';
+import styles from './Input.module.css';
 
 const Input = ({ name, dataId, type = 'text', title, min, max, autocomplete }) => {
-    // let minLength, maxLength;
-
-    // if (name === 'password') {
-    //     minLength = min;
-    //     maxLength = max;
-    //     min = null;
-    //     max = null;
-    // }
-
     return (
         <label className={styles.input}>
             <span className={styles.input__heading}>{title}</span>

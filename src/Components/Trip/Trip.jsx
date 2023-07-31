@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import style from './trip.module.css';
+import style from './Trip.module.css';
 import TripInfo from '../TripInfo/TripInfo';
 import TripPrice from '../TripPrice/TripPrice';
 import Button from '../Button/Button';

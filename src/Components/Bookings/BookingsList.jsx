@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import style from './bookings.module.css';
+import style from './Bookings.module.css';
 
 const BookingsList = ({ children }) => {
     return <ul className={style.bookings__list}>{children}</ul>;

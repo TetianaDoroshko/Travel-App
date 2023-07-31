@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import style from './bookTripPopup.module.css';
+import style from './BookTripPopup.module.css';
 import TripInfo from '../TripInfo/TripInfo';
 import Button from '../Button/Button';
 import InputControlled from '../Input/InputControlled';

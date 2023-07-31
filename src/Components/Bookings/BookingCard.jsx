@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import style from './bookings.module.css';
+import style from './Bookings.module.css';
 import HiddenLabel from '../HiddenLabel/HiddenLabel';
 import { formatDate } from '../../helpers/setDate';
 import { BookingType } from '../../variables/propTypes';

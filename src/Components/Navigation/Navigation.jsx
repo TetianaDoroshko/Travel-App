@@ -2,7 +2,7 @@
 import NavItem from './NavItem';
 import NavItemLink from './NavItemLink';
 import iconBookings from '../../assets/images/briefcase.svg';
-import style from './navigation.module.css';
+import style from './Navigation.module.css';
 import ProfileNav from '../ProfileNav/ProfileNav';
 
 const Navigation = () => {

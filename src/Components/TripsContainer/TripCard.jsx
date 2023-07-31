@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import TripInfo from '../TripInfo/TripInfo';
 import TripPrice from '../TripPrice/TripPrice';
 import { NavLink } from 'react-router-dom';
-import style from './tripsContainer.module.css';
-import btnStyle from '../Button/button.module.css';
+import style from './TripsContainer.module.css';
+import btnStyle from '../Button/Button.module.css';
 
 const TripCard = ({ trip }) => {
     return (

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './input.module.css';
+import styles from './Input.module.css';
 import { setDateTomorrow } from '../../helpers/setDate';
 
 const InputControlled = ({ name, dataId, type = 'text', title, min, max, value, onChange }) => {

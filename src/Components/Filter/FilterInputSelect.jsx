@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import HiddenLabel from '../HiddenLabel/HiddenLabel';
-import style from './filter.module.css';
+import style from './Filter.module.css';
 
 const FilterInputSelect = ({ title = '', name, dataId, options, value, onChange }) => {
     const onInputChange = event => {

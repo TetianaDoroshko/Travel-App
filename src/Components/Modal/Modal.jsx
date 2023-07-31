@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './modal.module.css';
+import styles from './Modal.module.css';
 
 const Modal = ({ children }) => {
     return (

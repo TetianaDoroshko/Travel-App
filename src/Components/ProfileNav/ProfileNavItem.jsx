@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import style from './profileNav.module.css';
+import style from './ProfileNav.module.css';
 
 const ProfileNavItem = ({ dataId = null, children }) => {
     return (

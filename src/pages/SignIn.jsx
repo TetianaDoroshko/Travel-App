@@ -5,6 +5,7 @@ import styles from './pages.module.css';
 import { signInThunk } from '../redux/actions/auth/signIn';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
+import { RoutingPath } from '../variables/routingPath';
 
 const SignIn = () => {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const SignIn = () => {
     const { isLoggedIn } = useSelector(store => store.auth);
 
     useEffect(() => {
-        if (isLoggedIn) navigate('/');
+        if (isLoggedIn) navigate(`${RoutingPath.HOME}`);
     }, [isLoggedIn, navigate]);
 
     const signInUser = ({ fullName, email, password }) => {
@@ -26,7 +27,7 @@ const SignIn = () => {
             <SignUpInForm title="Sign In" onSubmit={signInUser} />
             <span>
                 Already have an account?
-                <LinkAfterForm title="Sign Up" dataId="auth-sign-in-link" path="/sign-up" />
+                <LinkAfterForm title="Sign Up" dataId="auth-sign-in-link" path={RoutingPath.SIGN_UP} />
             </span>
         </main>
     );

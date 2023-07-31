@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import style from './filter.module.css';
-import inputStyle from '../Input/input.module.css';
+import style from './Filter.module.css';
+import inputStyle from '../Input/Input.module.css';
 import HiddenLabel from '../HiddenLabel/HiddenLabel';
 
 const FilterInput = ({ name, dataId, type = 'text', title, placeholder, autocomplete, value, onChange }) => {

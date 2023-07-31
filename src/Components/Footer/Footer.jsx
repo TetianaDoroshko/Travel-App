@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import style from './footer.module.css';
+import style from './Footer.module.css';
 import heartIcon from '../../assets/images/heart.svg';
 
 const Footer = () => {

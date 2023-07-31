@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import style from './profileNav.module.css';
-import btnStyle from '../Button/button.module.css';
+import style from './ProfileNav.module.css';
+import btnStyle from '../Button/Button.module.css';
 
 const ProfileNavLink = ({ path, dataId = null, children }) => {
     return (

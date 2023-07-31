@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './button.module.css';
+import styles from './Button.module.css';
 
 const Button = ({ title, type = 'submit', dataId, addClass, onClick }) => {
     const classes = addClass ? `${styles.button} ${styles[addClass]}` : styles.button;

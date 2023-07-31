@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './signUpInForm.module.css';
+import styles from './SignUpInForm.module.css';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import { NavLink } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import style from './tripPrice.module.css';
+import style from './TripPrice.module.css';
 
 const TripPrice = ({ trip }) => {
     return (
