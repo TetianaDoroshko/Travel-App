@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { useParams } from 'react-router';
 import PageTitle from '../Components/PageTitle/PageTitle';
 import Trip from '../Components/Trip/Trip';
@@ -8,7 +7,6 @@ import Modal from '../Components/Modal/Modal';
 import BookTripPopup from '../Components/BookTripPopup/BookTripPopup';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTripThunk } from '../redux/actions/trips/getTripById';
-// import { TripType } from '../variables/propTypes';
 
 const TripPage = () => {
     const { id } = useParams();
@@ -41,11 +39,6 @@ const TripPage = () => {
             )}
         </>
     );
-};
-
-TripPage.propTypes = {
-    // trips: PropTypes.arrayOf(TripType),
-    // add: PropTypes.func.isRequired
 };
 
 export default TripPage;

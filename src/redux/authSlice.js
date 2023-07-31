@@ -37,8 +37,6 @@ const authSlice = createSlice({
             })
             // refresh token
             .addCase(checkCurrentThunk.pending, (store, action) => {
-                // store.user = initialState.user;
-                // store.isLoggedIn = false;
                 store.loading = true;
             })
             .addCase(checkCurrentThunk.fulfilled, (store, { payload }) => {
@@ -71,7 +69,6 @@ const authSlice = createSlice({
             })
             // sign-out
             .addCase(signOutThunk.fulfilled, store => {
-                // store.loading = false;
                 store.user = initialState.user;
                 store.token = null;
                 store.isLoggedIn = false;

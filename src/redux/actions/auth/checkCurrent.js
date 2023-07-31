@@ -7,7 +7,6 @@ export const checkCurrentThunk = createAsyncThunk('auth/check-user', async (toke
     try {
         extra.httpService.addToken(token);
         const data = await extra.httpService.fetchData('/auth/authenticated-user', HttpMethod.GET);
-        console.log(data);
         return { user: data, token };
     } catch (error) {
         notify.error(error.message);

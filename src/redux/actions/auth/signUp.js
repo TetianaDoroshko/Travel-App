@@ -6,7 +6,6 @@ import { saveLocalStorage } from '../../../helpers/localStorage';
 export const signUpThunk = createAsyncThunk('auth/sign-up', async (newUser, { extra, rejectWithValue }) => {
     try {
         const data = await extra.httpService.fetchData('/auth/sign-up', HttpMethod.POST, newUser);
-        console.log(data);
         extra.httpService.addToken(data.token);
         saveLocalStorage(data.token);
         return data;

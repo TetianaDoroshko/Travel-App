@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import PageTitle from '../Components/PageTitle/PageTitle';
 import style from './pages.module.css';
 import BookingsList from '../Components/Bookings/BookingsList';
@@ -19,7 +18,6 @@ const BookingPage = () => {
 
     const removeBooking = bookingId => {
         dispatch(removeBookingThunk(bookingId));
-        // dispatch(getBookingsThunk());
     };
     return (
         <main className={style.bookingsPage}>
@@ -36,25 +34,5 @@ const BookingPage = () => {
         </main>
     );
 };
-
-// BookingPage.propTypes = {
-//     bookings: PropTypes.arrayOf(
-//         PropTypes.shape({
-//             id: PropTypes.string,
-//             userId: PropTypes.string,
-//             tripId: PropTypes.string,
-//             guests: PropTypes.number,
-//             date: PropTypes.string,
-//             trip: PropTypes.shape({
-//                 title: PropTypes.string,
-//                 duration: PropTypes.number,
-//                 price: PropTypes.number
-//             }),
-//             totalPrice: PropTypes.number,
-//             createdAt: PropTypes.string
-//         })
-//     ),
-//     remove: PropTypes.func.isRequired
-// };
 
 export default BookingPage;
