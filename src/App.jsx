@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router';
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Logo from './Components/Logo/Logo';
@@ -21,13 +21,14 @@ function App() {
 
     const location = useLocation();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const { loading } = useSelector(store => store.auth);
 
     useEffect(() => {
         const token = getLocalStorage();
-        token ? dispatch(checkCurrentThunk(token)) : <Navigate to={RoutingPath.SIGN_IN} />;
-    }, [dispatch]);
+        token ? dispatch(checkCurrentThunk(token)) : navigate(RoutingPath.SIGN_IN);
+    }, [dispatch, navigate]);
 
     useEffect(() => {
         if (location.pathname !== RoutingPath.SIGN_UP && location.pathname !== RoutingPath.SIGN_IN) {

@@ -7,12 +7,13 @@ import Modal from '../Components/Modal/Modal';
 import BookTripPopup from '../Components/BookTripPopup/BookTripPopup';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTripThunk } from '../redux/actions/trips/getTripById';
+import Loader from '../Components/Loader/Loader';
 
 const TripPage = () => {
     const { id } = useParams();
     const [isShownModal, setIsShownModal] = useState(false);
     const dispatch = useDispatch();
-    const { trip } = useSelector(store => store.trips);
+    const { trip, loading } = useSelector(store => store.trips);
 
     useEffect(() => {
         dispatch(getTripThunk(id));
@@ -30,7 +31,8 @@ const TripPage = () => {
         <>
             <main className={style.tripPage}>
                 <PageTitle hidden={true}>Travel App</PageTitle>
-                <Trip trip={trip} showModal={showModal} />
+                {loading && <Loader />}
+                {trip.id && <Trip trip={trip} showModal={showModal} />}
             </main>
             {isShownModal && (
                 <Modal>
